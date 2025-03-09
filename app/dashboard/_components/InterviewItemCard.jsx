@@ -4,7 +4,10 @@ import { Button } from "@/components/ui/button";
 export default function InterviewItemCard({ interview }) {
   const router = useRouter();
   const onStart = () => {
+
     router.push("/dashboard/interview/" + interview.mockId);
+
+  
   };
   const onFeedbackPress = () => {
     router.push("/dashboard/interview/" + interview.mockId + "/feedback");
