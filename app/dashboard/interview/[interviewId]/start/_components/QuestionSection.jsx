@@ -11,16 +11,13 @@ export default function QuestionSection({ mockInterviewQuestion, activeQuestionI
     }
   };
 
-  // Extract questions array
-  const questionsArray = mockInterviewQuestion?.questions || [];
-
   // Check if questions are available
-  if (!Array.isArray(questionsArray) || questionsArray.length === 0) {
+  if (!Array.isArray(mockInterviewQuestion) || mockInterviewQuestion.length === 0) {
     return <h2>No questions available</h2>;
   }
 
-  const currentQuestion = questionsArray[activeQuestionIndex]?.question;
-
+  const currentQuestion = mockInterviewQuestion[activeQuestionIndex]?.question;
+  
   // Handle cases where `question` is an object instead of a string
   const displayQuestion =
     typeof currentQuestion === "string"
@@ -31,7 +28,7 @@ export default function QuestionSection({ mockInterviewQuestion, activeQuestionI
     <div className="p-5 border rounded-lg my-10">
       {/* Question Navigation */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        {questionsArray.map((item, index) => (
+        {mockInterviewQuestion.map((question, index) => (
           <h2
             key={index} // ✅ Added key prop
             className={`p-2 bg-secondary rounded-full text-xs md:text-sm text-center cursor-pointer ${
