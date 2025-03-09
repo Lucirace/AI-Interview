@@ -113,7 +113,7 @@ export default function RecordAnswerSection({
         />
       </div>
       <Button
-        diasbled={loading}
+        disabled={loading}
         variant="outline"
         className="my-10"
         onClick={StartStopRecording}
